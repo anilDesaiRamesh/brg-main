@@ -36,9 +36,10 @@ jobs:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "~/repo/Brg-booking-system/pom.xml" }}
+          
       - run:
           commmand: |
-            - ls -al
+            ls -al
             
       - run: "mvn package"
       
