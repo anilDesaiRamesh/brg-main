@@ -45,7 +45,7 @@ jobs:
             - ~/.m2
           key: v1-dependencies-{{ checksum "~/repo/Brg-booking-system/pom.xml" }}                                          
             
-      - run: "mvn package"
+      - run: "mvn package -f ~/repo/Brg-booking-system/pom.xml"
            
       # run tests!
       - run:
