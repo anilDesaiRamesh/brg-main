@@ -56,6 +56,6 @@ jobs:
             cd ~/repo/Brg-booking-system             
             ls -al
             docker login -u anilramesh -p Infy@123
-            docker build .
-            docker push
+            docker build -t anilramesh/booking-api .
+            docker push  anilramesh/booking-api
           name: "Build application Docker image"
