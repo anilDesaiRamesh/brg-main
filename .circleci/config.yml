@@ -25,19 +25,20 @@ jobs:
 
       # Download and cache dependencies
       - restore_cache:
-          keys:      
+          keys:
+          - ls -al
           - v1-dependencies-{{ checksum "~/repo/Brg-booking-system/pom.xml" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
-
-      - run: mvn install -DskipTests
-      
-      - run: mvn dependency:go-offline
-
+          
+      - run: mvn dependency:go-offline            
+            
       - save_cache:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "~/repo/Brg-booking-system/pom.xml" }}
+          
+      - run: "mvn package"
         
       # run tests!
       - run:
