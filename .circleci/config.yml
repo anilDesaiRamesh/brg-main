@@ -38,8 +38,10 @@ jobs:
           key: v1-dependencies-{{ checksum "~/repo/Brg-booking-system/pom.xml" }}
           
       - run:
-          commmand: |
-            ls -al
+          name: Code Has Arrived
+          command: |
+               ls -lrt
+               echo '^^^That should look familiar^^^'
             
       - run: "mvn package"
       
