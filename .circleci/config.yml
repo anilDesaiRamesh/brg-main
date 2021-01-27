@@ -33,17 +33,17 @@ jobs:
       - run:
           command: |
             ls -al
+            echo '^^^That should look familiar^^^'
             
       - run: mvn dependency:go-offline            
             
       - save_cache:
           paths:
             - ~/.m2
-          key: v1-dependencies-{{ checksum "~/repo/Brg-booking-system/pom.xml" }}                
+          key: v1-dependencies-{{ checksum "~/repo/Brg-booking-system/pom.xml" }}                                          
             
       - run: "mvn package"
-      
-        
+           
       # run tests!
       - run:
           command: |
