@@ -30,16 +30,16 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
           
+      - run:
+          command: |
+            ls -al
+            
       - run: mvn dependency:go-offline            
             
       - save_cache:
           paths:
             - ~/.m2
-          key: v1-dependencies-{{ checksum "~/repo/Brg-booking-system/pom.xml" }}
-          
-      - run:
-          commmand: |
-            ls -al
+          key: v1-dependencies-{{ checksum "~/repo/Brg-booking-system/pom.xml" }}                
             
       - run: "mvn package"
       
