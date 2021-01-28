@@ -52,7 +52,8 @@ jobs:
       - run:
           command: |
             ls -al
-            cp -R ~/repo/ssl ~/repo/Brg-booking-system/ssl
+            cp -R ~/repo/ssl/. ~/repo/Brg-booking-system
+            ls -al
             cd ~/repo/Brg-booking-system             
             ls -al
             docker login -u anilramesh -p Infy@123
