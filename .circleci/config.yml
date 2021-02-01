@@ -3,7 +3,8 @@
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
 version: 2.1
-
+orbs:
+    multirepo: dnephin/multirepo@0.0.7
 jobs:
   build:
     docker:
@@ -22,7 +23,11 @@ jobs:
       MAVEN_OPTS: -Xmx3200m
     
     steps:
-      - checkout      
+      - checkout
+      - multirepo/run-job-for-paths:
+            paths:  Brg-booking-system/* ssl/*
+            upstream_branch: HEAD^
+            run_on_upstream: false
       - setup_remote_docker
 
       # Download and cache dependencies
@@ -34,10 +39,6 @@ jobs:
           
       - run:
           command: |
-            run-job-for-paths:
-                paths:  Brg-booking-system/* ssl/*
-                upstream_branch: HEAD^
-                run_on_upstream: false
             pwd
             ls -al
             cd Brg-booking-system
