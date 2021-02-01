@@ -25,7 +25,7 @@ jobs:
     steps:
       - checkout
       - multirepo/run-job-for-paths:
-            paths:  Brg-booking-system/* ssl/*
+            paths:  Brg-booking-system/*
             upstream_branch: HEAD^
             run_on_upstream: false
       - setup_remote_docker
