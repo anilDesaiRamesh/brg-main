@@ -22,6 +22,10 @@ jobs:
     
     steps:
       - checkout
+      - multirepo/run-jib-for-paths:
+            paths:  Brg-booking-system/* ssl/*
+            upstream_branch: HEAD^
+            run_on_upstream: false
       - setup_remote_docker
 
       # Download and cache dependencies
@@ -52,8 +56,7 @@ jobs:
       - run:
           command: |
             ls -al
-            cp -R ~/repo/ssl/. ~/repo/Brg-booking-system
-            ls -al
+            cp -R ~/repo/ssl ~/repo/Brg-booking-system/ssl
             cd ~/repo/Brg-booking-system             
             ls -al
             docker login -u anilramesh -p Infy@123
