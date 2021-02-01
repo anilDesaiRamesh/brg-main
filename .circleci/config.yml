@@ -3,8 +3,7 @@
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
 version: 2.1
-orbs:
-    multirepo: dnephin/multirepo@0.0.7
+
 jobs:
   build:
     docker:
@@ -24,7 +23,7 @@ jobs:
     
     steps:
       - checkout
-      - multirepo/run-job-for-paths:
+      - run-job-for-paths:
             paths:  Brg-booking-system/* ssl/*
             upstream_branch: HEAD^
             run_on_upstream: false
