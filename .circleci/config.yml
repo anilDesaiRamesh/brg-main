@@ -22,7 +22,7 @@ jobs:
     
     steps:
       - checkout
-      - multirepo/run-jib-for-paths:
+      - multirepo/run-job-for-paths:
             paths:  Brg-booking-system/* ssl/*
             upstream_branch: HEAD^
             run_on_upstream: false
